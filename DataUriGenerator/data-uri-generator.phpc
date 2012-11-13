@@ -1,7 +1,7 @@
 <?php
 	/** Data URI CLI Generator - extracted from Nette Framework Source Code
 	 * @author		Jan Pecha, <janpecha@email.cz>
-	 * @version		2012-09-28-1
+	 * @version		2012-11-13-1
 	 * @license		New BSD License
 	 */
 	
@@ -18,16 +18,26 @@
 		}
 		else
 		{
-			echo "Data URI Generator - jako jediny argument ocekava jmeno souboru, do ktereho chcete ulozit vygenerovany vystup.\n";
+			echo "\nData URI Generator (2012-11-13-1)\n*********************************\n\n",
+				"Usage:\n",
+				"\tdataurigen <input-file-name> <output-file-name>\n",
+				"\n\tFor example:\n",
+				"\t> dataurigen image.png image.txt",
+				"\n\n";
 		}
 	}
 	else
 	{
-		echo "[error] Nepodarilo se ziskat cestu k adresari\n";
+		echo "[error] Nepodarilo se ziskat cestu k aktualnimu adresari (cwd).\n";
 	}
 	
 	
 	
+	/**
+	 * @link	
+	 * @param	string
+	 * @return	string
+	 */
 	function generateDataUri($data)
 	{
 		if(!is_string($data))
@@ -41,6 +51,11 @@
 	
 	
 	
+	/**
+	 * @link	
+	 * @param	string
+	 * @return	string
+	 */
 	function mimeTypeFromString($data)
 	{
 		if (extension_loaded('fileinfo') && preg_match('#^(\S+/[^\s;]+)#', finfo_buffer(finfo_open(FILEINFO_MIME), $data), $m)) {
