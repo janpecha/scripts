@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# saves the path to this script's directory
+dir=` dirname $0 `
+
+# absolutizes the path if necessary
+if echo $dir | grep -v ^/ > /dev/null; then
+	dir=` pwd `/$dir
+fi
+
+# runs youtube-dl with script's arguments
+youtube-dl -t $*
+
+# version: 2012-08-23-1
+# based on Nette Test 'run-tests.sh' script
