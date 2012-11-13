@@ -1,7 +1,7 @@
 <?php
 	/** Data URI CLI Generator - extracted from Nette Framework Source Code
 	 * @author		Jan Pecha, <janpecha@email.cz>
-	 * @version		2012-11-13-1
+	 * @version		2012-11-13-2
 	 * @license		New BSD License
 	 */
 	
@@ -34,7 +34,7 @@
 	
 	
 	/**
-	 * @link	
+	 * @link	http://api.nette.org/2.0/source-Templating.Helpers.php.html#266
 	 * @param	string
 	 * @return	string
 	 */
@@ -52,7 +52,7 @@
 	
 	
 	/**
-	 * @link	
+	 * @link	http://api.nette.org/2.0.6/source-Utils.MimeTypeDetector.php.html#63
 	 * @param	string
 	 * @return	string
 	 */
