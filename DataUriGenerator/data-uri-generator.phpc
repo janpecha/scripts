@@ -1,16 +1,34 @@
 <?php
 	/** Data URI CLI Generator - extracted from Nette Framework Source Code
 	 * @author		Jan Pecha, <janpecha@email.cz>
-	 * @version		2012-11-13-2
+	 * @version		2013-03-23-1
 	 * @license		New BSD License
 	 */
 	
 	if(($dir = getcwd()) !== false)
 	{
-		if(isset($_SERVER['argc']) && $_SERVER['argc'] > 2)	// is given file names?
+		if(isset($_SERVER['argc']) && $_SERVER['argc'] > 1)	// is given file name(s)?
 		{
 			$sourceFilename = $dir . '/' . $_SERVER['argv'][1];
-			$outputFilename = $dir . '/' . $_SERVER['argv'][2];
+			$outputFilename = '';
+			
+			if(isset($_SERVER['argv'][2]))
+			{
+				$outputFilename = $dir . '/' . $_SERVER['argv'][2];
+			}
+			else
+			{
+				$pos = strrpos($sourceFilename, '.');
+				
+				if($pos !== FALSE)
+				{
+					$outputFilename = substr($sourceFilename, 0, $pos) . '.txt';
+				}
+				else
+				{
+					$outputFilename = "$sourceFilename.txt";
+				}
+			}
 			
 			file_put_contents($outputFilename, generateDataUri(file_get_contents($sourceFilename)));
 			
@@ -20,7 +38,7 @@
 		{
 			echo "\nData URI Generator (2012-11-13-1)\n*********************************\n\n",
 				"Usage:\n",
-				"\tdataurigen <input-file-name> <output-file-name>\n",
+				"\tdataurigen <input-file-name> [<output-file-name>]\n",
 				"\n\tFor example:\n",
 				"\t> dataurigen image.png image.txt",
 				"\n\n";
