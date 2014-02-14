@@ -11,23 +11,17 @@
 
 		if(isset($_SERVER['argc']) && $_SERVER['argc'] > 1)	// php convert2mp3 mp4 flv
 		{
-			$args = $_SERVER['argc'];
+			$args = $_SERVER['argv'];
+			array_shift($args);
 		} else {
 			$args = array('mp4', 'flv');
 		}
 
-		$first = true;
 		$errors = array();
 		$masks = array();
 
 		foreach($args as $arg)
 		{
-			if($first)
-			{
-				$first = false;
-				continue;
-			}
-
 			if(checkExt($arg))
 			{
 				$masks[] = "*.$arg";
