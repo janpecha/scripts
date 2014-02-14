@@ -9,4 +9,4 @@ if echo $dir | grep -v ^/ > /dev/null; then
 fi
 
 # runs webgen.phpc with script's arguments
-php -f "$dir/convert2mp3.phpc" -- $*
+php -f "$dir/convert2mp3.php" -- $*
