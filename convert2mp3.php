@@ -51,7 +51,7 @@
 			{
 				$nFile = substr($file, 0, $pos) . '.mp3';
 				#echo "$nFile\n";
-				passthru("ffmpeg -i \"$file\" \"$nFile\"");
+				passthru("avconv -i \"$file\" \"$nFile\"");
 				echo "-------------------------------------------\n";
 			}
 			else
