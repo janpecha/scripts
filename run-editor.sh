@@ -17,7 +17,10 @@ file=${file//\%2F/\/}
 #vim "$file" +$line
 
 # Gedit
-gedit +$line "$file"
+#gedit +$line "$file"
 
 # Komodo
 #komodo "$file#$line"
+
+# Sublime Text 2
+subl "$file:$line"
